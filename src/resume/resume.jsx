@@ -25,7 +25,7 @@ function Resume() {
         >
           <header className="flex justify-between items-center mb-8">
             <div className="flex items-center">
-              <img src="../.././public/OIP.jpeg" alt="Logo" className="h-10 w-10 mr-4" />
+              {/* <img src="../.././public/OIP.jpeg" alt="Logo" className="h-10 w-10 mr-4" /> */}
               <div>
                 <h1 className="text-xl font-bold">Mohd Atif Ansari</h1>
                 <p className="text-sm text-gray-600">Web Developer</p>
