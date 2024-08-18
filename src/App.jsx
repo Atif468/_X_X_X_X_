@@ -8,10 +8,12 @@ import IntroductionForm from "./Forms/intro";
 import SkillsForm from "./Forms/skills";
 import ProjectForm from "./Forms/projects";
 import AchievementForm from "./Forms/achievement";
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
     <>
+    <Analytics />
       <nav className="h-10 relative text-black text-2xl text-center">
         Under marammat..
       </nav>

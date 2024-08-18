@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 
 const LinkForm = () => {
-  // const [links, setLinks] = useState([{ name: '', url: '' }]);
+  const [links, setLinks] = useState([{ name: '', url: '' }]);
 
-  // const handleChange = (index, event) => {
-  //   const { name, value } = event.target;
-  //   const newLinks = [...links];
-  //   newLinks[index][name] = value;
-  //   setLinks(newLinks);
-  // };
+  const handleChange = (index, event) => {
+    const { name, value } = event.target;
+    const newLinks = [...links];
+    newLinks[index][name] = value;
+    setLinks(newLinks);
+  };
 
-  // const handleAddLink = () => {
-  //   setLinks([...links, { name: '', url: '' }]);
-  // };
+  const handleAddLink = () => {
+    setLinks([...links, { name: '', url: '' }]);
+  };
 
-  // const handleDeleteLink = (index) => {
-  //   const newLinks = links.filter((_, i) => i !== index);
-  //   setLinks(newLinks);
-  // };
+  const handleDeleteLink = (index) => {
+    const newLinks = links.filter((_, i) => i !== index);
+    setLinks(newLinks);
+  };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log('Submitted Links:', links);
-  // };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Submitted Links:', links);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto p-4">
