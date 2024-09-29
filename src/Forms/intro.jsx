@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ResumeContext } from '../Context/Context'; // Adjust the path if necessary
 
 const IntroductionForm = () => {
-  const [introduction, setIntroduction] = useState('');
+  const { introduction, setIntroduction } = useContext(ResumeContext); // Using context for introduction
 
   const handleChange = (event) => {
-    setIntroduction(event.target.value);
+    setIntroduction(event.target.value); // Update context state
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Introduction:', introduction);
+    console.log('Introduction:', introduction); // You may want to use context here as well
   };
 
   return (
@@ -37,9 +38,6 @@ const IntroductionForm = () => {
         </button>
       </div>
     </form>
-    // <h1 className='bg-red-700'>
-    //   IntroductionForm
-    // </h1>
   );
 };
 

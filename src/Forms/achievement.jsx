@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ResumeContext } from '../Context/Context'; // Adjust the path if necessary
 
 const AchievementForm = () => {
-  const [achievements, setAchievements] = useState([{ title: '', description: '' }]);
+  const { achievements, setAchievements } = useContext(ResumeContext); // Using context for achievements
 
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newAchievements = [...achievements];
     newAchievements[index][name] = value;
-    setAchievements(newAchievements);
+    setAchievements(newAchievements); // Update context state
   };
 
   const handleAddAchievement = () => {
@@ -80,10 +81,6 @@ const AchievementForm = () => {
         </button>
       </div>
     </form>
-
-    // <h1 className='bg-red-700'>
-    //   AchievementForm
-    // </h1>
   );
 };
 

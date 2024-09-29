@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ResumeContext } from '../Context/Context'; // Adjust the path if necessary
 
 const LinkForm = () => {
-  const [links, setLinks] = useState([{ name: '', url: '' }]);
+  const { links, setLinks } = useContext(ResumeContext); // Use context for links
 
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newLinks = [...links];
     newLinks[index][name] = value;
-    setLinks(newLinks);
+    setLinks(newLinks); // Update context state
   };
 
   const handleAddLink = () => {
-    setLinks([...links, { name: '', url: '' }]);
+    setLinks([...links, { name: '', url: '' }]); // Add new link entry to context
   };
 
   const handleDeleteLink = (index) => {
     const newLinks = links.filter((_, i) => i !== index);
-    setLinks(newLinks);
+    setLinks(newLinks); // Update context state
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Submitted Links:', links);
+    console.log('Submitted Links:', links); // You may want to use context here as well
   };
 
   return (
@@ -71,9 +72,6 @@ const LinkForm = () => {
         </button>
       </div>
     </form>
-    // <h1 className='bg-red-700'>
-    //   LinkForm
-    // </h1>
   );
 };
 

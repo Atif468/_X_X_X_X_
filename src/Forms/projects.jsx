@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ResumeContext } from '../Context/Context'; // Adjust the path if necessary
 
 const ProjectForm = () => {
-  const [projects, setProjects] = useState([
-    { title: '', description: '', liveLink: '', githubLink: '', technologies: '' }
-  ]);
+  const { projects, setProjects } = useContext(ResumeContext); // Use context for projects
 
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newProjects = [...projects];
     newProjects[index][name] = value;
-    setProjects(newProjects);
+    setProjects(newProjects); // Update context state
   };
 
   const handleAddProject = () => {
-    setProjects([...projects, { title: '', description: '', liveLink: '', githubLink: '', technologies: '' }]);
+    setProjects([...projects, { title: '', description: '', liveLink: '', githubLink: '', technologies: '' }]); // Add new project entry
   };
 
   const handleDeleteProject = (index) => {
     const newProjects = projects.filter((_, i) => i !== index);
-    setProjects(newProjects);
+    setProjects(newProjects); // Update context state
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Submitted Projects:', projects);
+    console.log('Submitted Projects:', projects); // Handle submission logic here
   };
 
   return (
@@ -121,9 +120,6 @@ const ProjectForm = () => {
         </button>
       </div>
     </form>
-  //   <h1 className='bg-red-700'>
-  //   ProjectForm
-  // </h1>
   );
 };
 

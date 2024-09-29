@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ResumeContext } from '../Context/Context'; // Adjust the path as necessary
 
 const SkillsForm = () => {
-  const [skills, setSkills] = useState(['']);
+  const { skills, setSkills } = useContext(ResumeContext); // Access skills from context
 
   const handleChange = (index, event) => {
     const newSkills = [...skills];
     newSkills[index] = event.target.value;
-    setSkills(newSkills);
+    setSkills(newSkills); // Update context state
   };
 
   const handleAddSkill = () => {
-    setSkills([...skills, '']);
+    setSkills([...skills, '']); // Add a new skill entry
   };
 
   const handleDeleteSkill = (index) => {
     const newSkills = skills.filter((_, i) => i !== index);
-    setSkills(newSkills);
+    setSkills(newSkills); // Update context state
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Submitted Skills:', skills);
+    console.log('Submitted Skills:', skills); // Handle submission logic here
   };
 
   return (
@@ -61,9 +62,6 @@ const SkillsForm = () => {
         </button>
       </div>
     </form>
-    // <h1 className='bg-red-700'>
-    //   SkillsForm
-    // </h1>
   );
 };
 

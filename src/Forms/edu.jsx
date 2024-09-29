@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ResumeContext } from '../Context/Context'; // Adjust the path if necessary
 
 const EducationForm = () => {
-  const [educations, setEducations] = useState([
-    { institution: '', degree: '', fieldOfStudy: '', startDate: '', endDate: '', notes: '' },
-  ]);
+  const { educations, setEducations } = useContext(ResumeContext); // Using context for educations
 
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newEducations = [...educations];
     newEducations[index][name] = value;
-    setEducations(newEducations);
+    setEducations(newEducations); // Update context state
   };
 
   const handleAddEducation = () => {
@@ -140,9 +139,6 @@ const EducationForm = () => {
         </button>
       </div>
     </form>
-    // <h1 className='bg-red-700'>
-    //   EducationForm
-    // </h1>
   );
 };
 
